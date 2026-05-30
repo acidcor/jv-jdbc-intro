@@ -5,5 +5,4 @@ USE bookstore;
 CREATE TABLE IF NOT EXISTS books (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(64),
-    price DECIMAL,
-);
+    price DECIMAL);

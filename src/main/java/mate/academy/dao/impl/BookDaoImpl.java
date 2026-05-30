@@ -87,11 +87,6 @@ public class BookDaoImpl implements BookDao {
             statement.setBigDecimal(2, book.getPrice());
             statement.setLong(3, book.getId());
             int updatedRows = statement.executeUpdate();
-
-            if (updatedRows < 1) {
-                throw new DataProcessingException("Nothing changed? Rows updated: " + updatedRows);
-            }
-
         } catch (SQLException e) {
             throw new DataProcessingException("Can't update book", e);
         }
@@ -106,9 +101,6 @@ public class BookDaoImpl implements BookDao {
             PreparedStatement statement = connection.prepareStatement(sqlQuery);
             statement.setLong(1, id);
             result = statement.executeUpdate();
-            if (result < 1) {
-                throw new DataProcessingException("Nothing changed? Rows updated: " + result);
-            }
         } catch (SQLException e) {
             throw new DataProcessingException("Can't delete book", e);
         }
